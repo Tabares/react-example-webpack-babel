@@ -24,3 +24,11 @@ Adding React
 ```sh
 $ npm i react react-dom -S
 ```
+
+How to run and build
+
+```sh
+$ npm install
+$ npm run build
+$ npm run dev
+```
