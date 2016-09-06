@@ -4,7 +4,7 @@ class JSX extends React.Component {
   render() {
     let i = 1,
       myStyle = {
-        fontSize: 100,
+        fontSize: 12,
         color: '#FF0000'
       };
 
