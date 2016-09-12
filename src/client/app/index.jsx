@@ -3,6 +3,7 @@ import {render} from 'react-dom';
 import AwesomeComponent from './Component.jsx';
 import JSX from './JSX.jsx';
 import Table from './components/table/Table.jsx';
+import State from './components/State.jsx';
 
 class App extends React.Component {
   render () {
@@ -14,6 +15,7 @@ class App extends React.Component {
         <AwesomeComponent/>
         <JSX/>
         <Table/>
+        <State/>
       </div>
     );
   }
