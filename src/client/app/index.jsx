@@ -4,8 +4,17 @@ import AwesomeComponent from './Component.jsx';
 import JSX from './JSX.jsx';
 import Table from './components/table/Table.jsx';
 import State from './components/State.jsx';
+import Title from './components/props/Title.jsx';
+
 
 class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      header: "the title"
+    }
+  }
+
   render () {
     return (
       <div>
@@ -16,6 +25,7 @@ class App extends React.Component {
         <JSX/>
         <Table/>
         <State/>
+        <Title headerProp= {this.state.header}/>
       </div>
     );
   }
