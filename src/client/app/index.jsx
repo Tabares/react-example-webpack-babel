@@ -7,6 +7,9 @@ import State from './components/State.jsx';
 import Title from './components/props/Title.jsx';
 import Body from './components/props/Body.jsx';
 import Validation from './components/props/Validation.jsx';
+import SetState from './components/SetState.jsx';
+import ForceUpdate from './components/ForceUpdate.jsx';
+import FindDOM from './components/FindDOM.jsx';
 
 class App extends React.Component {
   constructor(props){
@@ -31,6 +34,10 @@ class App extends React.Component {
         <Body bodyProp= {this.state.body}/>
         <Validation/>
         <h3>{this.props.footer}</h3>
+        <SetState/>
+        <ForceUpdate/>
+        <FindDOM/>
+
       </div>
     );
   }
