@@ -73,6 +73,18 @@
 	
 	var _State2 = _interopRequireDefault(_State);
 	
+	var _Title = __webpack_require__(/*! ./components/props/Title.jsx */ 178);
+	
+	var _Title2 = _interopRequireDefault(_Title);
+	
+	var _Body = __webpack_require__(/*! ./components/props/Body.jsx */ 179);
+	
+	var _Body2 = _interopRequireDefault(_Body);
+	
+	var _Validation = __webpack_require__(/*! ./components/props/Validation.jsx */ 180);
+	
+	var _Validation2 = _interopRequireDefault(_Validation);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -84,10 +96,16 @@
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
 	
-	  function App() {
+	  function App(props) {
 	    _classCallCheck(this, App);
 	
-	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+	
+	    _this.state = {
+	      header: "the title",
+	      body: "This is my body injected to the Component"
+	    };
+	    return _this;
 	  }
 	
 	  _createClass(App, [{
@@ -116,13 +134,25 @@
 	        _react2.default.createElement(_Component2.default, null),
 	        _react2.default.createElement(_JSX2.default, null),
 	        _react2.default.createElement(_Table2.default, null),
-	        _react2.default.createElement(_State2.default, null)
+	        _react2.default.createElement(_State2.default, null),
+	        _react2.default.createElement(_Title2.default, { headerProp: this.state.header }),
+	        _react2.default.createElement(_Body2.default, { bodyProp: this.state.body }),
+	        _react2.default.createElement(_Validation2.default, null),
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          this.props.footer
+	        )
 	      );
 	    }
 	  }]);
 	
 	  return App;
 	}(_react2.default.Component);
+	
+	App.defaultProps = {
+	  footer: "Injected footer..."
+	};
 	
 	(0, _reactDom.render)(_react2.default.createElement(App, null), document.getElementById('app'));
 
@@ -22484,6 +22514,233 @@
 	}(_react2.default.Component);
 	
 	exports.default = State;
+
+/***/ },
+/* 178 */
+/*!***************************************************!*\
+  !*** ./src/client/app/components/props/Title.jsx ***!
+  \***************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Title = function (_React$Component) {
+	  _inherits(Title, _React$Component);
+	
+	  function Title() {
+	    _classCallCheck(this, Title);
+	
+	    return _possibleConstructorReturn(this, (Title.__proto__ || Object.getPrototypeOf(Title)).apply(this, arguments));
+	  }
+	
+	  _createClass(Title, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'h1',
+	        null,
+	        this.props.headerProp
+	      );
+	    }
+	  }]);
+	
+	  return Title;
+	}(_react2.default.Component);
+	
+	exports.default = Title;
+
+/***/ },
+/* 179 */
+/*!**************************************************!*\
+  !*** ./src/client/app/components/props/Body.jsx ***!
+  \**************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Body = function (_React$Component) {
+	  _inherits(Body, _React$Component);
+	
+	  function Body() {
+	    _classCallCheck(this, Body);
+	
+	    return _possibleConstructorReturn(this, (Body.__proto__ || Object.getPrototypeOf(Body)).apply(this, arguments));
+	  }
+	
+	  _createClass(Body, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'h2',
+	        null,
+	        this.props.bodyProp
+	      );
+	    }
+	  }]);
+	
+	  return Body;
+	}(_react2.default.Component);
+	
+	exports.default = Body;
+
+/***/ },
+/* 180 */
+/*!********************************************************!*\
+  !*** ./src/client/app/components/props/Validation.jsx ***!
+  \********************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Validation = function (_React$Component) {
+	    _inherits(Validation, _React$Component);
+	
+	    function Validation() {
+	        _classCallCheck(this, Validation);
+	
+	        return _possibleConstructorReturn(this, (Validation.__proto__ || Object.getPrototypeOf(Validation)).apply(this, arguments));
+	    }
+	
+	    _createClass(Validation, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                null,
+	                _react2.default.createElement(
+	                    "h3",
+	                    null,
+	                    "Array: ",
+	                    this.props.propArray
+	                ),
+	                _react2.default.createElement(
+	                    "h3",
+	                    null,
+	                    "Bool: ",
+	                    this.props.propBool ? "True..." : "False..."
+	                ),
+	                _react2.default.createElement(
+	                    "h3",
+	                    null,
+	                    "Func: ",
+	                    this.props.propFunc(3)
+	                ),
+	                _react2.default.createElement(
+	                    "h3",
+	                    null,
+	                    "Number: ",
+	                    this.props.propNumber
+	                ),
+	                _react2.default.createElement(
+	                    "h3",
+	                    null,
+	                    "String: ",
+	                    this.props.propString
+	                ),
+	                _react2.default.createElement(
+	                    "h3",
+	                    null,
+	                    "Object: ",
+	                    this.props.propObject.objectName1
+	                ),
+	                _react2.default.createElement(
+	                    "h3",
+	                    null,
+	                    "Object: ",
+	                    this.props.propObject.objectName2
+	                ),
+	                _react2.default.createElement(
+	                    "h3",
+	                    null,
+	                    "Object: ",
+	                    this.props.propObject.objectName3
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return Validation;
+	}(_react2.default.Component);
+	
+	Validation.propTypes = {
+	    propArray: _react2.default.PropTypes.array.isRequired,
+	    propBool: _react2.default.PropTypes.bool.isRequired,
+	    propFunc: _react2.default.PropTypes.func,
+	    propNumber: _react2.default.PropTypes.number,
+	    propString: _react2.default.PropTypes.string,
+	    propObject: _react2.default.PropTypes.object
+	};
+	
+	Validation.defaultProps = {
+	    propArray: [1, 2, 3, 4, 5],
+	    propBool: true,
+	    propFunc: function propFunc(e) {
+	        return e;
+	    },
+	    propNumber: 5,
+	    propString: "String value...",
+	    propObject: {
+	        objectName1: "objectValue1",
+	        objectName2: "objectValue2",
+	        objectName3: "objectValue3"
+	    }
+	};
+	
+	exports.default = Validation;
 
 /***/ }
 /******/ ]);

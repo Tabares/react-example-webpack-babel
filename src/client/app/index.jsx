@@ -4,8 +4,19 @@ import AwesomeComponent from './Component.jsx';
 import JSX from './JSX.jsx';
 import Table from './components/table/Table.jsx';
 import State from './components/State.jsx';
+import Title from './components/props/Title.jsx';
+import Body from './components/props/Body.jsx';
+import Validation from './components/props/Validation.jsx';
 
 class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      header: "the title",
+      body: "This is my body injected to the Component"
+    }
+  }
+
   render () {
     return (
       <div>
@@ -16,9 +27,17 @@ class App extends React.Component {
         <JSX/>
         <Table/>
         <State/>
+        <Title headerProp= {this.state.header}/>
+        <Body bodyProp= {this.state.body}/>
+        <Validation/>
+        <h3>{this.props.footer}</h3>
       </div>
     );
   }
+}
+
+App.defaultProps = {
+   footer: "Injected footer...",
 }
 
 render(<App/>, document.getElementById('app'));
