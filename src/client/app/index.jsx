@@ -5,13 +5,16 @@ import JSX from './JSX.jsx';
 import Table from './components/table/Table.jsx';
 import State from './components/State.jsx';
 import Title from './components/props/Title.jsx';
+import Body from './components/props/Body.jsx';
+
 
 
 class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      header: "the title"
+      header: "the title",
+      body: "This is my body injected to the Component"
     }
   }
 
@@ -26,6 +29,8 @@ class App extends React.Component {
         <Table/>
         <State/>
         <Title headerProp= {this.state.header}/>
+        <Body bodyProp= {this.state.body}/>
+
       </div>
     );
   }
