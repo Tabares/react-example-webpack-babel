@@ -10,14 +10,26 @@ import Validation from './components/props/Validation.jsx';
 import SetState from './components/SetState.jsx';
 import ForceUpdate from './components/ForceUpdate.jsx';
 import FindDOM from './components/FindDOM.jsx';
+import LifeCycle from './components/LifeCycle.jsx';
+import ReactDOM from 'react-dom';
 
 class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       header: "the title",
-      body: "This is my body injected to the Component"
+      body: "This is my body injected to the Component",
+      data: 0
     }
+    this.setNewNumber = this.setNewNumber.bind(this);
+  }
+
+  setNewNumber(){
+    this.setState({data: this.state.data + 1})
+  }
+
+  unmountApp(){
+    setTimeout(() => {ReactDOM.unmountComponentAtNode(document.getElementById('app'));}, 10000);
   }
 
   render () {
@@ -37,6 +49,11 @@ class App extends React.Component {
         <SetState/>
         <ForceUpdate/>
         <FindDOM/>
+        <div>
+            <button onClick = {this.setNewNumber}>INCREMENT</button>
+            <LifeCycle myNumber = {this.state.data}></LifeCycle>
+            <button onClick = {this.unmountApp}>Unmount This App</button>
+        </div>
 
       </div>
     );

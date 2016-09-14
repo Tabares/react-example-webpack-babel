@@ -57,6 +57,8 @@
 	
 	var _reactDom = __webpack_require__(/*! react-dom */ 34);
 	
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+	
 	var _Component = __webpack_require__(/*! ./Component.jsx */ 172);
 	
 	var _Component2 = _interopRequireDefault(_Component);
@@ -97,6 +99,10 @@
 	
 	var _FindDOM2 = _interopRequireDefault(_FindDOM);
 	
+	var _LifeCycle = __webpack_require__(/*! ./components/LifeCycle.jsx */ 184);
+	
+	var _LifeCycle2 = _interopRequireDefault(_LifeCycle);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -115,12 +121,26 @@
 	
 	    _this.state = {
 	      header: "the title",
-	      body: "This is my body injected to the Component"
+	      body: "This is my body injected to the Component",
+	      data: 0
 	    };
+	    _this.setNewNumber = _this.setNewNumber.bind(_this);
 	    return _this;
 	  }
 	
 	  _createClass(App, [{
+	    key: 'setNewNumber',
+	    value: function setNewNumber() {
+	      this.setState({ data: this.state.data + 1 });
+	    }
+	  }, {
+	    key: 'unmountApp',
+	    value: function unmountApp() {
+	      setTimeout(function () {
+	        _reactDom2.default.unmountComponentAtNode(document.getElementById('app'));
+	      }, 10000);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -157,7 +177,22 @@
 	        ),
 	        _react2.default.createElement(_SetState2.default, null),
 	        _react2.default.createElement(_ForceUpdate2.default, null),
-	        _react2.default.createElement(_FindDOM2.default, null)
+	        _react2.default.createElement(_FindDOM2.default, null),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'button',
+	            { onClick: this.setNewNumber },
+	            'INCREMENT'
+	          ),
+	          _react2.default.createElement(_LifeCycle2.default, { myNumber: this.state.data }),
+	          _react2.default.createElement(
+	            'button',
+	            { onClick: this.unmountApp },
+	            'Unmount This App'
+	          )
+	        )
 	      );
 	    }
 	  }]);
@@ -22976,6 +23011,97 @@
 	}(_react2.default.Component);
 	
 	exports.default = FindDOM;
+
+/***/ },
+/* 184 */
+/*!*************************************************!*\
+  !*** ./src/client/app/components/LifeCycle.jsx ***!
+  \*************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var LifeCycle = function (_React$Component) {
+	    _inherits(LifeCycle, _React$Component);
+	
+	    function LifeCycle() {
+	        _classCallCheck(this, LifeCycle);
+	
+	        return _possibleConstructorReturn(this, (LifeCycle.__proto__ || Object.getPrototypeOf(LifeCycle)).apply(this, arguments));
+	    }
+	
+	    _createClass(LifeCycle, [{
+	        key: 'componentWillMount',
+	        value: function componentWillMount() {
+	            console.log('Component WILL MOUNT!');
+	        }
+	    }, {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            console.log('Component DID MOUNT!');
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(newProps) {
+	            console.log('Component WILL RECIEVE PROPS!');
+	        }
+	    }, {
+	        key: 'shouldComponentUpdate',
+	        value: function shouldComponentUpdate(newProps, newState) {
+	            return true;
+	        }
+	    }, {
+	        key: 'componentWillUpdate',
+	        value: function componentWillUpdate(nextProps, nextState) {
+	            console.log('Component WILL UPDATE!');
+	        }
+	    }, {
+	        key: 'componentDidUpdate',
+	        value: function componentDidUpdate(prevProps, prevState) {
+	            console.log('Component DID UPDATE!');
+	        }
+	    }, {
+	        key: 'componentWillUnmount',
+	        value: function componentWillUnmount() {
+	            console.log('Component WILL UNMOUNT!');
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    'h3',
+	                    null,
+	                    this.props.myNumber
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return LifeCycle;
+	}(_react2.default.Component);
+	
+	exports.default = LifeCycle;
 
 /***/ }
 /******/ ]);
